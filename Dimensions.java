@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -127,13 +128,15 @@ public class Dimensions implements ActionListener {
             if (width > 0 && height > 0) {
                 int centerX = getWidth() / 2;
                 int centerY = getHeight() / 2;
-                int startX = centerX - (width / 2) * 3;
-                int startY = centerY - (height / 2) * 3;
+                int startX = centerX - (width / 2) * 30;
+                int startY = centerY - (height / 2) * 30;
 
                 for (int i = 0; i < width; i++) {
                     for (int j = 0; j < height; j++) {
-                        g.fillRect(startX + i * 3, startY + j * 3, 3, 3);
-                        g.setColor(new Color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256)));
+                        g.setColor(Color.WHITE);
+                        g.fillRect(startX + i * 30, startY + j * 30, 30, 30);
+                        g.setColor(Color.BLACK);
+                        g.drawRect(startX + i * 30, startY + j * 30, 30, 30);
                     }
                 }
             }
