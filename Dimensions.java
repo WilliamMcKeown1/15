@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -11,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Dimensions implements ActionListener {
+public class Grid implements ActionListener {
     private static final int BUTTON_HEIGHT = 75;
     private static final int BUTTON_WIDTH = 400;
     private static final int TEXTFIELD_HEIGHT = 50;
