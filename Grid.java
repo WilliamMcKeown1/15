@@ -29,7 +29,7 @@ public class Grid implements ActionListener {
     private JPanel panel;
     private GridPanel gridPanel;
 
-    public Dimensions() {
+    public Grid() {
         f = new JFrame();
         f.setLayout(new BoxLayout(f.getContentPane(), BoxLayout.Y_AXIS));
         f.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -115,30 +115,32 @@ public class Grid implements ActionListener {
     class GridPanel extends JPanel {
         private int width;
         private int height;
-
+    
         public void setDimensions(int width, int height) {
             this.width = width;
             this.height = height;
         }
-
+    
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
+    
             if (width > 0 && height > 0) {
-                int centerX = getWidth() / 2;
-                int centerY = getHeight() / 2;
-                int startX = centerX - (width / 2) * 30;
-                int startY = centerY - (height / 2) * 30;
-
+                int cellSize = Math.min(getWidth() / width, getHeight() / height);
+                int startX = (getWidth() - cellSize * width) / 2;
+                int startY = (getHeight() - cellSize * height) / 2;
+            
                 for (int i = 0; i < width; i++) {
                     for (int j = 0; j < height; j++) {
-                        g.setColor(Color.WHITE);
-                        g.fillRect(startX + i * 30, startY + j * 30, 30, 30);
+                        int x = startX + i * cellSize;
+                        int y = startY + j * cellSize;
+                        g.setColor(Color.WHITE); 
+                        g.fillRect(x, y, cellSize, cellSize);
                         g.setColor(Color.BLACK);
-                        g.drawRect(startX + i * 30, startY + j * 30, 30, 30);
+                        g.drawRect(x, y, cellSize, cellSize);
                     }
                 }
-            }
+            }            
         }
     }
 }
